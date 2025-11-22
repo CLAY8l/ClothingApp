@@ -460,7 +460,10 @@ private val sampleProducts = listOf(
 )
 
 @Composable
-fun DiscoverScreenWithState() {
+fun DiscoverScreenWithState(
+    onSneakerClick: (ProductUi) -> Unit,
+    onCartClick: () -> Unit = {},
+) {
     var products by remember { mutableStateOf(sampleProducts) }
 
     DiscoverScreen(
@@ -470,9 +473,7 @@ fun DiscoverScreenWithState() {
                 if (it.id == product.id) it.copy(isWishlisted = !it.isWishlisted) else it
             }
         },
-        onProductClick = { product ->
-            // Handle product click
-        },
+        onProductClick = onSneakerClick, // Use the passed parameter
         onSearchClick = {
             // Handle search click if needed
         },
@@ -483,8 +484,11 @@ fun DiscoverScreenWithState() {
             // Handle notification click
         },
         onTabSelected = { tab ->
-            // Handle tab selection
+            when (tab) {
+                BottomTab.Cart -> onCartClick()
+                // Handle other tabs
+                else -> { /* Handle other tabs */ }
+            }
         }
     )
 }
-

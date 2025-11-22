@@ -3,57 +3,31 @@ package com.example.clothingapp_frontend
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.clothingapp_frontend.screens.CartScreen
-import com.example.clothingapp_frontend.screens.CheckoutScreen
-
-import com.example.clothingapp_frontend.screens.DiscoverScreen
-import com.example.clothingapp_frontend.screens.DiscoverScreenWithState
-import com.example.clothingapp_frontend.screens.LoginScreen
-import com.example.clothingapp_frontend.screens.LoginScreenWithState
-import com.example.clothingapp_frontend.screens.OnBordingScreen
-import com.example.clothingapp_frontend.screens.OrderAcceptedScreen
-import com.example.clothingapp_frontend.screens.SignUpScreenWithState
-import com.example.clothingapp_frontend.screens.SneakerDetailScreen
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.ui.Modifier
+import androidx.core.view.WindowCompat
+import androidx.navigation.compose.rememberNavController
+import com.example.clothingapp_frontend.navigation.NavGraph
 import com.example.clothingapp_frontend.ui.theme.ClothingApp_FrontEndTheme
-
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
         setContent {
             ClothingApp_FrontEndTheme {
-                    OnBordingScreen()
-                   // LoginScreenWithState()
-                    //SignUpScreenWithState()
-                    //DiscoverScreenWithState()
-                    //SneakerDetailScreen()
-                    //CartScreen()
-                    //CheckoutScreen()
-                    //OrderAcceptedScreen()
-
-            }
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    val navController = rememberNavController()
+                    NavGraph(navController = navController)
+                }
             }
         }
     }
-
-
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-        OnBordingScreen()
-        /*LoginScreenWithState()
-        SignUpScreenWithState()
-        DiscoverScreenWithState()
-        SneakerDetailScreen()
-        CartScreen()
-        CheckoutScreen()
-        OrderAcceptedScreen()*/
-
-
-
 }

@@ -63,6 +63,7 @@ private val HeartRed = Color(0xFFFF3B30)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SneakerDetailScreen(
+    onSneakerClick: () -> Unit,
     modifier: Modifier = Modifier,
     onBack: () -> Unit = {},
     onNotifications: () -> Unit = {},
@@ -417,8 +418,3 @@ private fun ColorSwatch(swatchColor: Color, selected: Boolean, onClick: () -> Un
     )
 }
 
-// Preview function
-@Composable
-fun SneakerDetailScreenPreview() {
-    SneakerDetailScreen()
-}

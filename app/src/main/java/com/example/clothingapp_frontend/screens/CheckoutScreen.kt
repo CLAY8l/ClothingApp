@@ -62,10 +62,10 @@ private fun formatCardNumber(cardNumber: String): String {
 
 @Composable
 fun CheckoutScreen(
+    onBack: () -> Unit,
+    onPlaceOrder: () -> Unit,
     modifier: Modifier = Modifier,
-    onBack: () -> Unit = {},
     onNotification: () -> Unit = {},
-    onPlaceOrder: () -> Unit = {},
     subtotal: Double = 1542.99,
     vat: Double = 0.0,
     shippingFee: Double = 80.0

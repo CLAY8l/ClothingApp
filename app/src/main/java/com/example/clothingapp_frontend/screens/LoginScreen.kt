@@ -343,7 +343,11 @@ private fun Footer(onJoin: () -> Unit) {
 
 // Usage example with state management
 @Composable
-fun LoginScreenWithState() {
+fun LoginScreenWithState(
+    onLoginSuccess: () -> Unit,
+    onSignUpClick: () -> Unit
+)
+{
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
     var isPasswordVisible by remember { mutableStateOf(false) }
@@ -363,10 +367,4 @@ fun LoginScreenWithState() {
         onFacebookLogin = { /* Handle Facebook login */ },
         onJoin = { /* Handle join */ }
     )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun LoginScreenPreview() {
-    LoginScreenWithState()
 }

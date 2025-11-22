@@ -74,10 +74,11 @@ data class CartItem(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CartScreen(
+    onBack: () -> Unit,
+    onCheckout: () -> Unit,
     modifier: Modifier = Modifier,
-    onBack: () -> Unit = {},
     onNotification: () -> Unit = {},
-    onCheckout: () -> Unit = {}
+
 ) {
     val cartItems = remember {
         mutableStateListOf(
@@ -405,8 +406,3 @@ private fun BottomNav() {
     }
 }
 
-// Preview function
-@Composable
-fun CartScreenPreview() {
-    CartScreen()
-}

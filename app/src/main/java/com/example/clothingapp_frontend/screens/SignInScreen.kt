@@ -408,9 +408,14 @@ private fun Footer(onLogin: () -> Unit) {
     }
 }
 
-// State management version for actual usage
+
 @Composable
-fun SignUpScreenWithState() {
+fun SignUpScreenWithState(
+    onSignUpClick: () -> Unit,
+    onSignUpSuccess: () -> Unit,
+    onBack: () -> Unit
+)
+{
     var fullName by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
@@ -437,8 +442,3 @@ fun SignUpScreenWithState() {
     )
 }
 
-@Preview(showBackground = true)
-@Composable
-fun SignUpPreview() {
-    SignUpScreenWithState()
-}

@@ -37,9 +37,9 @@ private val DarkText = Color(0xFF181725)
 
 @Composable
 fun OrderAcceptedScreen(
+    onBackToHome: () -> Unit,
+    onTrackOrder: () -> Unit,
     modifier: Modifier = Modifier,
-    onTrackOrder: () -> Unit = {},
-    onBackToHome: () -> Unit = {}
 ) {
     Column(
         modifier = modifier
@@ -156,8 +156,3 @@ fun OrderAcceptedScreen(
     }
 }
 
-// Preview function
-@Composable
-fun OrderAcceptedScreenPreview() {
-    OrderAcceptedScreen()
-}

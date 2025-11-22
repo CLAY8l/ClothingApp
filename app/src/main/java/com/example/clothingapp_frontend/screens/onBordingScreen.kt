@@ -41,6 +41,7 @@ val Inter = FontFamily(
 
 @Composable
 fun OnBordingScreen(
+    onContinue: () -> Unit,
     onGetStartedClicked: () -> Unit = {} // Add click handler parameter
 ) {
     Box(
